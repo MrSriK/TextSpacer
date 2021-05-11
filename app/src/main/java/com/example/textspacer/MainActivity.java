@@ -1,12 +1,15 @@
 package com.example.textspacer;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
-    //private final TextView[] textViews = new TextView[15];
     TextView txt0;
     TextView txt1;
     TextView txt2;
@@ -22,25 +25,15 @@ public class MainActivity extends AppCompatActivity {
     TextView txt12;
     TextView txt13;
     TextView txt14;
-    String str = "InvisibleHumans";
-    String[] spacing = str.split("");
-
+    EditText editText;
+    Button buttonSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*
-        int temp;
-        String str = "InvisibleEngine";
-        String[] id=str.split("");
-
-        for(int i = 0; i< id.length; i++){
-            temp = getResources().getIdentifier(id[i], "id",getPackageName());
-            textViews[i] = (TextView)findViewById(temp);
-            textViews[i].setText(temp);
-        }
-        */
+        editText= findViewById(R.id.ET);
+        buttonSubmit=findViewById(R.id.submitButton);
         txt0 = findViewById(R.id.t0);
         txt1 = findViewById(R.id.t1);
         txt2 = findViewById(R.id.t2);
@@ -56,24 +49,33 @@ public class MainActivity extends AppCompatActivity {
         txt12 = findViewById(R.id.t12);
         txt13 = findViewById(R.id.t13);
         txt14 = findViewById(R.id.t14);
-        spacer();
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String data=editText.getText().toString();
+                String[] spacing = data.split("");
+                try {
+
+
+                    txt0.setText(spacing[1]);
+                    txt1.setText(spacing[2]);
+                    txt2.setText(spacing[3]);
+                    txt3.setText(spacing[4]);
+                    txt4.setText(spacing[5]);
+                    txt5.setText(spacing[6]);
+                    txt6.setText(spacing[7]);
+                    txt7.setText(spacing[8]);
+                    txt8.setText(spacing[9]);
+                    txt9.setText(spacing[10]);
+                    txt10.setText(spacing[11]);
+                    txt11.setText(spacing[12]);
+                    txt12.setText(spacing[13]);
+                    txt13.setText(spacing[14]);
+                    txt14.setText(spacing[15]);
+                }catch (ArrayIndexOutOfBoundsException ignore){}
+            }
+        });
     }
 
-    public void spacer() {
-        txt0.setText(spacing[1]);
-        txt1.setText(spacing[2]);
-        txt2.setText(spacing[3]);
-        txt3.setText(spacing[4]);
-        txt4.setText(spacing[5]);
-        txt5.setText(spacing[6]);
-        txt6.setText(spacing[7]);
-        txt7.setText(spacing[8]);
-        txt8.setText(spacing[9]);
-        txt9.setText(spacing[10]);
-        txt10.setText(spacing[11]);
-        txt11.setText(spacing[12]);
-        txt12.setText(spacing[13]);
-        txt13.setText(spacing[14]);
-        txt14.setText(spacing[15]);
-    }
 }
